@@ -1,0 +1,3524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrownGaming - تاج الألعاب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --gold-dark: #D4AF37;
+            --gold-light: #FFF8DC;
+            --purple: #8A2BE2;
+            --purple-dark: #6A0DAD;
+            --purple-light: #E6E6FA;
+            --dark: #0A0A1A;
+            --dark-light: #1A1A2E;
+            --blue: #4169E1;
+            --blue-dark: #1E3A8A;
+            --success: #00FF7F;
+            --danger: #FF4757;
+            --warning: #FFA500;
+            --gray: #8A8AA3;
+            --radius: 15px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --glow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--glow);
+        }
+        
+        .logo-icon i {
+            font-size: 2.2rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(to right, var(--gold), var(--purple-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .logo p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-display {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .user-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .user-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--success);
+            box-shadow: 0 0 8px var(--success);
+        }
+        
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            border-radius: var(--radius);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .nav-btn.active {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark);
+            border: none;
+            box-shadow: var(--glow);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--gold);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #00CC6A);
+            color: white;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #FF2E43);
+            color: white;
+        }
+        
+        .btn-purple {
+            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+            color: white;
+        }
+        
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Cards & Sections */
+        .section {
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: var(--shadow);
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-header h2 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-header h2 i {
+            color: var(--gold);
+        }
+        
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Players Grid */
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .player-card {
+            background: linear-gradient(145deg, rgba(42, 42, 72, 0.7), rgba(26, 26, 46, 0.9));
+            border-radius: var(--radius);
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .player-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--gold), var(--purple));
+        }
+        
+        .player-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .player-avatar {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-left: 15px;
+            border: 3px solid var(--gold);
+        }
+        
+        .player-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .player-country {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .player-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .tag {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .player-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .player-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        /* Rooms Section */
+        .rooms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .room-card {
+            background: linear-gradient(145deg, rgba(42, 42, 72, 0.8), rgba(26, 26, 46, 0.9));
+            border-radius: var(--radius);
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+        }
+        
+        .room-card.public {
+            border-left: 5px solid var(--success);
+        }
+        
+        .room-card.private {
+            border-left: 5px solid var(--purple);
+        }
+        
+        .room-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .room-title {
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        
+        .room-type {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        
+        .room-description {
+            color: var(--gray);
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        
+        .room-members {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .member-avatars {
+            display: flex;
+        }
+        
+        .member-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: -10px;
+            border: 2px solid var(--dark-light);
+        }
+        
+        .more-members {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: -10px;
+            border: 2px solid var(--dark-light);
+        }
+        
+        .room-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Voice Chat Section */
+        .voice-chat-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 25px;
+            height: 600px;
+        }
+        
+        .voice-room {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: var(--radius);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .room-title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .room-title-bar h3 {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .members-list {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .member-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .member-item.active {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .member-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .member-avatar-small {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .member-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .member-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        .voice-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .voice-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .voice-btn.active {
+            background: linear-gradient(135deg, var(--danger), #FF2E43);
+            box-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+        }
+        
+        .voice-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .mic-status {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .chat-container {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .chat-header h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border-right: 3px solid var(--gold);
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .message-sender {
+            font-weight: bold;
+            color: var(--gold);
+        }
+        
+        .message-time {
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+        
+        .message-content {
+            line-height: 1.5;
+        }
+        
+        .chat-input-container {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .chat-input-row {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+        }
+        
+        /* Notifications */
+        .notifications-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            max-width: 350px;
+        }
+        
+        .notification {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(42, 42, 72, 0.9));
+            border-radius: var(--radius);
+            padding: 18px;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow);
+            border-right: 4px solid var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: slideInLeft 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .notification-icon {
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+        
+        .notification-content h4 {
+            margin-bottom: 5px;
+            color: var(--gold);
+        }
+        
+        .notification-content p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Loader */
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--gold);
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 40px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Hidden class */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            width: 90%;
+            max-width: 500px;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(42, 42, 72, 0.95));
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+        
+        /* Microphone Test */
+        .mic-test-container {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+        }
+        
+        .mic-visualizer {
+            width: 100%;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius);
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .mic-bar {
+            position: absolute;
+            bottom: 0;
+            width: 8px;
+            background: var(--gold);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.1s ease;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .voice-chat-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .chat-container {
+                height: 400px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .players-grid, .rooms-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 25px;
+                align-items: flex-start;
+            }
+            
+            .main-nav {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .user-display {
+                padding: 8px 15px;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Fix Arabic text alignment */
+        .arabic-text {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-dark);
+        }
+        
+        /* Voice Status */
+        .voice-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .voice-status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--success);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* Fix for small screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .player-actions {
+                flex-direction: column;
+            }
+            
+            .voice-controls {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Auth Forms */
+        .auth-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+        
+        .auth-tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-tab.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        
+        /* Password toggle */
+        .password-container {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>CrownGaming</h1>
+                    <p>تاج الألعاب - تواصل مع اللاعبين حول العالم</p>
+                </div>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-display hidden" id="userDisplay">
+                    <div class="user-avatar" id="userAvatar">?</div>
+                    <div class="user-details">
+                        <h3 id="userName">لاعب</h3>
+                        <div class="user-status">
+                            <div class="status-dot" id="userStatusDot"></div>
+                            <span id="userStatusText">غير متصل</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                </button>
+                
+                <button class="btn btn-danger hidden" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> خروج
+                </button>
+            </div>
+        </header>
+        
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="home">
+                <i class="fas fa-home"></i> الرئيسية
+            </button>
+            <button class="nav-btn" data-section="players">
+                <i class="fas fa-users"></i> اللاعبون
+            </button>
+            <button class="nav-btn" data-section="rooms">
+                <i class="fas fa-door-closed"></i> الغرف الصوتية
+            </button>
+            <button class="nav-btn" data-section="voiceChat">
+                <i class="fas fa-headset"></i> الصوت والشات
+            </button>
+            <button class="nav-btn" data-section="profile">
+                <i class="fas fa-user-crown"></i> الملف الشخصي
+            </button>
+            <button class="nav-btn" data-section="friends">
+                <i class="fas fa-user-friends"></i> الأصدقاء
+            </button>
+        </nav>
+        
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="section-header">
+                <h2><i class="fas fa-home"></i> مرحباً في CrownGaming</h2>
+            </div>
+            
+            <div class="welcome-message">
+                <h3 style="color: var(--gold); margin-bottom: 20px; font-size: 1.5rem;">تاج الألعاب - منصة التواصل الرائدة للاعبين</h3>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; line-height: 1.8;" class="arabic-text">
+                    انضم إلى مجتمعنا المتميز من اللاعبين حول العالم. تواصل مع لاعبين آخرين، انضم إلى غرف صوتية، شارك في مناقشات، وقم بتكوين فرق لعبة لا تُنسى.
+                </p>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <h4 style="color: var(--gold); margin-bottom: 15px;"><i class="fas fa-bullseye"></i> ميزات المنصة</h4>
+                        <ul style="list-style-type: none; padding-right: 20px;" class="arabic-text">
+                            <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check" style="color: var(--success);"></i>
+                                <span>غرف صوتية عامة وخاصة</span>
+                            </li>
+                            <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check" style="color: var(--success);"></i>
+                                <span>شات نصي مع جميع الأعضاء</span>
+                            </li>
+                            <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check" style="color: var(--success);"></i>
+                                <span>بحث وتصفية للاعبين حسب التفضيلات</span>
+                            </li>
+                            <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check" style="color: var(--success);"></i>
+                                <span>نظام صداقة وطلبات تواصل</span>
+                            </li>
+                            <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check" style="color: var(--success);"></i>
+                                <span>تتبع حالة اللاعبين (متصل/غير متصل)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="form-group">
+                        <h4 style="color: var(--gold); margin-bottom: 15px;"><i class="fas fa-fire"></i> الإحصائيات الحية</h4>
+                        <div class="player-stats" style="border: none; padding: 0;">
+                            <div class="stat">
+                                <div class="stat-value" id="onlineCount">0</div>
+                                <div class="stat-label">لاعبون متصلون</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value" id="roomsCount">0</div>
+                                <div class="stat-label">غرفة نشطة</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value" id="totalPlayers">0</div>
+                                <div class="stat-label">لاعب مسجل</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <h4 style="color: var(--gold); margin-bottom: 15px;"><i class="fas fa-gamepad"></i> الألعاب الشائعة</h4>
+                            <div class="player-tags">
+                                <span class="tag">Fortnite</span>
+                                <span class="tag">Call of Duty</span>
+                                <span class="tag">Valorant</span>
+                                <span class="tag">FIFA 23</span>
+                                <span class="tag">Minecraft</span>
+                                <span class="tag">PUBG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Players Section -->
+        <section id="players" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> اللاعبون المتصلون</h2>
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <input type="text" id="searchPlayers" placeholder="ابحث عن لاعب..." style="width: 250px;">
+                    <select id="filterGame" style="width: 200px;">
+                        <option value="">جميع الألعاب</option>
+                        <option value="Fortnite">Fortnite</option>
+                        <option value="Call of Duty">Call of Duty</option>
+                        <option value="Valorant">Valorant</option>
+                        <option value="FIFA">FIFA</option>
+                        <option value="Minecraft">Minecraft</option>
+                        <option value="PUBG">PUBG</option>
+                    </select>
+                    <button class="btn btn-secondary btn-small" id="refreshPlayers">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="playersContainer">
+                <div class="loader" id="playersLoader"></div>
+                <div class="players-grid" id="playersGrid"></div>
+            </div>
+        </section>
+        
+        <!-- Rooms Section -->
+        <section id="rooms" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-door-closed"></i> الغرف الصوتية</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-secondary btn-small" id="refreshRooms">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button class="btn btn-primary" id="createRoomBtn">
+                        <i class="fas fa-plus"></i> إنشاء غرفة جديدة
+                    </button>
+                </div>
+            </div>
+            
+            <div id="roomsContainer">
+                <div class="rooms-container" id="roomsList"></div>
+            </div>
+        </section>
+        
+        <!-- Voice Chat Section -->
+        <section id="voiceChat" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-headset"></i> الصوت والشات</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-success btn-small" id="joinRoomBtn">
+                        <i class="fas fa-sign-in-alt"></i> انضم إلى غرفة
+                    </button>
+                    <button class="btn btn-danger btn-small hidden" id="leaveRoomBtn">
+                        <i class="fas fa-sign-out-alt"></i> مغادرة الغرفة
+                    </button>
+                    <button class="btn btn-secondary btn-small" id="testMicBtn">
+                        <i class="fas fa-microphone"></i> اختبار المايك
+                    </button>
+                </div>
+            </div>
+            
+            <div class="voice-chat-container">
+                <div class="voice-room">
+                    <div class="room-title-bar">
+                        <h3 id="currentRoomTitle">لم تنضم إلى أي غرفة</h3>
+                        <div class="room-stats">
+                            <span id="roomMembersCount">0 أعضاء</span>
+                        </div>
+                    </div>
+                    
+                    <div class="members-list" id="voiceRoomMembers">
+                        <p style="text-align: center; color: var(--gray); padding: 40px 20px;" class="arabic-text">
+                            انضم إلى غرفة صوتية لرؤية الأعضاء والبدء بالمحادثة
+                        </p>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <div class="voice-status">
+                            <div class="voice-status-indicator"></div>
+                            <span id="connectionStatus">حالة الاتصال: جاهز</span>
+                        </div>
+                        <div class="mic-test-container hidden" id="micTestContainer">
+                            <h4 style="color: var(--gold); margin-bottom: 15px;">اختبار المايكروفون</h4>
+                            <div class="mic-visualizer" id="micVisualizer"></div>
+                            <p id="micTestStatus" class="arabic-text">تحدث لاختبار المايكروفون...</p>
+                            <button class="btn btn-secondary btn-small" id="stopMicTestBtn">
+                                <i class="fas fa-stop"></i> إيقاف الاختبار
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-controls">
+                        <div style="text-align: center;">
+                            <button class="voice-btn" id="micBtn">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <div class="mic-status" id="micStatus">مايك: معطل</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <button class="voice-btn" id="headphoneBtn">
+                                <i class="fas fa-headphones"></i>
+                            </button>
+                            <div class="mic-status" id="headphoneStatus">سماعات: مفعلة</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <button class="voice-btn" id="settingsBtn">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                            <div class="mic-status">إعدادات</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h3>الشات العام</h3>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message">
+                            <div class="message-header">
+                                <span class="message-sender">مرحباً بك في CrownGaming!</span>
+                                <span class="message-time">الآن</span>
+                            </div>
+                            <div class="message-content arabic-text">
+                                هذه الرسالة ترحيبية. ابدأ بالتواصل مع اللاعبين الآخرين من خلال إرسال رسالة في الشات العام.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="chat-input-row">
+                            <input type="text" class="chat-input" id="chatInput" placeholder="اكتب رسالتك هنا..." class="arabic-text">
+                            <button class="btn btn-primary" id="sendMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-user-crown"></i> ملفك الشخصي</h2>
+                <button class="btn btn-primary" id="editProfileBtn">
+                    <i class="fas fa-edit"></i> تعديل الملف
+                </button>
+            </div>
+            
+            <div id="profileView">
+                <div class="player-card" style="max-width: 800px; margin: 0 auto; border: 2px solid var(--gold);">
+                    <div class="player-header">
+                        <div class="player-avatar" id="profileAvatar">?</div>
+                        <div class="player-info">
+                            <h3 id="profileName">الاسم</h3>
+                            <div class="player-country">
+                                <i class="fas fa-globe"></i>
+                                <span id="profileCountry">الدولة</span>
+                                <span class="status-dot" style="margin-right: 10px;"></span>
+                                <span id="profileStatus">متصل</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="player-tags" id="profileTags"></div>
+                    
+                    <p id="profileBio" style="margin: 20px 0; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; line-height: 1.7;" class="arabic-text"></p>
+                    
+                    <div class="player-stats">
+                        <div class="stat">
+                            <div class="stat-value" id="profileLevel">-</div>
+                            <div class="stat-label">المستوى</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="profileWins">0</div>
+                            <div class="stat-label">الفوز</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="profileMatches">0</div>
+                            <div class="stat-label">المباريات</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="profileHours">0</div>
+                            <div class="stat-label">ساعات اللعب</div>
+                        </div>
+                    </div>
+                    
+                    <div class="player-actions" style="justify-content: center; margin-top: 25px;">
+                        <button class="btn btn-purple" id="friendsBtn">
+                            <i class="fas fa-user-friends"></i> الأصدقاء
+                        </button>
+                        <button class="btn btn-secondary" id="achievementsBtn">
+                            <i class="fas fa-trophy"></i> الإنجازات
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="profileEditForm" class="hidden" style="max-width: 800px; margin: 30px auto 0;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editName">اسم اللاعب</label>
+                        <input type="text" id="editName" required class="arabic-text">
+                    </div>
+                    <div class="form-group">
+                        <label for="editCountry">الدولة</label>
+                        <select id="editCountry" required>
+                            <option value="">اختر الدولة</option>
+                            <option value="السعودية">السعودية</option>
+                            <option value="مصر">مصر</option>
+                            <option value="الإمارات">الإمارات</option>
+                            <option value="الكويت">الكويت</option>
+                            <option value="قطر">قطر</option>
+                            <option value="البحرين">البحرين</option>
+                            <option value="عمان">عمان</option>
+                            <option value="الأردن">الأردن</option>
+                            <option value="لبنان">لبنان</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editGameCategory">فئة الألعاب المفضلة</label>
+                        <select id="editGameCategory" required>
+                            <option value="">اختر الفئة</option>
+                            <option value="أكشن ومغامرات">أكشن ومغامرات</option>
+                            <option value="رياضية">رياضية</option>
+                            <option value="إستراتيجية">إستراتيجية</option>
+                            <option value="أدوار (RPG)">أدوار (RPG)</option>
+                            <option value="تصويب">تصويب</option>
+                            <option value="سباقات">سباقات</option>
+                            <option value="ألعاب جماعية (MMO)">ألعاب جماعية (MMO)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editFavoriteGame">اللعبة المفضلة</label>
+                        <select id="editFavoriteGame" required>
+                            <option value="">اختر اللعبة</option>
+                            <option value="Fortnite">Fortnite</option>
+                            <option value="Call of Duty">Call of Duty</option>
+                            <option value="Valorant">Valorant</option>
+                            <option value="FIFA">FIFA</option>
+                            <option value="Minecraft">Minecraft</option>
+                            <option value="PUBG">PUBG</option>
+                            <option value="League of Legends">League of Legends</option>
+                            <option value="Apex Legends">Apex Legends</option>
+                            <option value="Rainbow Six Siege">Rainbow Six Siege</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editLevel">المستوى</label>
+                        <select id="editLevel" required>
+                            <option value="مبتدئ">مبتدئ</option>
+                            <option value="متوسط">متوسط</option>
+                            <option value="متقدم">متقدم</option>
+                            <option value="خبير">خبير</option>
+                            <option value="محترف">محترف</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editHours">ساعات اللعب (أسبوعياً)</label>
+                        <input type="number" id="editHours" min="0" max="168" value="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="editBio">نبذة شخصية</label>
+                    <textarea id="editBio" placeholder="أخبرنا عن نفسك، أسلوب لعبك، ما تبحث عنه في اللاعبين الآخرين..." class="arabic-text"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editWins">عدد الفوز</label>
+                        <input type="number" id="editWins" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="editMatches">عدد المباريات</label>
+                        <input type="number" id="editMatches" min="0" value="0">
+                    </div>
+                </div>
+                <div class="player-actions" style="justify-content: center; margin-top: 20px;">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> حفظ التغييرات
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancelEditBtn">
+                        <i class="fas fa-times"></i> إلغاء
+                    </button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Friends Section -->
+        <section id="friends" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-user-friends"></i> الأصدقاء وطلبات الصداقة</h2>
+                <button class="btn btn-secondary btn-small" id="refreshFriends">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group" style="flex: 2;">
+                    <h3 style="color: var(--gold); margin-bottom: 15px;">أصدقاؤك</h3>
+                    <div id="friendsList" style="min-height: 200px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 20px;">
+                        <p style="text-align: center; color: var(--gray); padding: 40px 20px;" class="arabic-text">
+                            لا يوجد أصدقاء حتى الآن. ابدأ بإرسال طلبات صداقة إلى اللاعبين الآخرين.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="form-group" style="flex: 1;">
+                    <h3 style="color: var(--gold); margin-bottom: 15px;">طلبات الصداقة</h3>
+                    <div id="friendRequests" style="min-height: 200px; background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 20px;">
+                        <p style="text-align: center; color: var(--gray); padding: 40px 20px;" class="arabic-text">
+                            لا توجد طلبات صداقة في الوقت الحالي.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Notifications -->
+        <div class="notifications-container" id="notificationsContainer"></div>
+    </div>
+    
+    <!-- Create Room Modal -->
+    <div class="modal hidden" id="createRoomModal">
+        <div class="section-header">
+            <h2><i class="fas fa-plus"></i> إنشاء غرفة جديدة</h2>
+            <button class="btn btn-danger btn-small" id="closeModalBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <form id="createRoomForm" class="arabic-text">
+            <div class="form-group">
+                <label for="roomName">اسم الغرفة</label>
+                <input type="text" id="roomName" required placeholder="مثال: غرفة المحترفين" class="arabic-text">
+            </div>
+            
+            <div class="form-group">
+                <label for="roomDescription">وصف الغرفة</label>
+                <textarea id="roomDescription" placeholder="وصف مختصر للغرفة وأهدافها..." class="arabic-text"></textarea>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="roomType">نوع الغرفة</label>
+                    <select id="roomType" required>
+                        <option value="public">عامة (الجميع يمكن الانضمام)</option>
+                        <option value="private">خاصة (بالدعوة فقط)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roomMaxUsers">الحد الأقصى للأعضاء</label>
+                    <select id="roomMaxUsers" required>
+                        <option value="5">5 أعضاء</option>
+                        <option value="10" selected>10 أعضاء</option>
+                        <option value="20">20 أعضاء</option>
+                        <option value="50">50 أعضاء</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="roomGame">اللعبة المستهدفة</label>
+                <select id="roomGame">
+                    <option value="">عامة (جميع الألعاب)</option>
+                    <option value="Fortnite">Fortnite</option>
+                    <option value="Call of Duty">Call of Duty</option>
+                    <option value="Valorant">Valorant</option>
+                    <option value="FIFA">FIFA</option>
+                    <option value="Minecraft">Minecraft</option>
+                    <option value="PUBG">PUBG</option>
+                </select>
+            </div>
+            
+            <div class="player-actions" style="justify-content: center; margin-top: 25px;">
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-door-open"></i> إنشاء الغرفة
+                </button>
+                <button type="button" class="btn btn-secondary" id="cancelRoomBtn">
+                    <i class="fas fa-times"></i> إلغاء
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Join Room Modal -->
+    <div class="modal hidden" id="joinRoomModal">
+        <div class="section-header">
+            <h2><i class="fas fa-sign-in-alt"></i> الانضمام إلى غرفة</h2>
+            <button class="btn btn-danger btn-small" id="closeJoinModalBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div id="availableRoomsList" style="max-height: 400px; overflow-y: auto;">
+            <!-- Rooms will be populated here -->
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="btn btn-secondary" id="cancelJoinBtn">
+                <i class="fas fa-times"></i> إلغاء
+            </button>
+        </div>
+    </div>
+    
+    <!-- Login/Register Modal -->
+    <div class="modal hidden" id="authModal">
+        <div class="section-header">
+            <h2><i class="fas fa-sign-in-alt"></i> تسجيل الدخول / إنشاء حساب</h2>
+            <button class="btn btn-danger btn-small" id="closeAuthModalBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="auth-tabs">
+            <button class="auth-tab active" data-form="loginForm">تسجيل الدخول</button>
+            <button class="auth-tab" data-form="registerForm">إنشاء حساب جديد</button>
+        </div>
+        
+        <form id="loginForm" class="auth-form">
+            <div class="form-group">
+                <label for="loginEmail">البريد الإلكتروني</label>
+                <input type="email" id="loginEmail" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="loginPassword">كلمة المرور</label>
+                <div class="password-container">
+                    <input type="password" id="loginPassword" required>
+                    <button type="button" class="toggle-password" data-target="loginPassword">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="player-actions" style="justify-content: center; margin-top: 20px;">
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                </button>
+            </div>
+        </form>
+        
+        <form id="registerForm" class="auth-form hidden">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="regName">اسم اللاعب</label>
+                    <input type="text" id="regName" required class="arabic-text">
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">البريد الإلكتروني</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="regPassword">كلمة المرور</label>
+                    <div class="password-container">
+                        <input type="password" id="regPassword" required minlength="6">
+                        <button type="button" class="toggle-password" data-target="regPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">تأكيد كلمة المرور</label>
+                    <div class="password-container">
+                        <input type="password" id="regConfirmPassword" required minlength="6">
+                        <button type="button" class="toggle-password" data-target="regConfirmPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="regCountry">الدولة</label>
+                    <select id="regCountry" required>
+                        <option value="">اختر الدولة</option>
+                        <option value="السعودية">السعودية</option>
+                        <option value="مصر">مصر</option>
+                        <option value="الإمارات">الإمارات</option>
+                        <option value="الكويت">الكويت</option>
+                        <option value="قطر">قطر</option>
+                        <option value="البحرين">البحرين</option>
+                        <option value="عمان">عمان</option>
+                        <option value="الأردن">الأردن</option>
+                        <option value="لبنان">لبنان</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="regFavoriteGame">اللعبة المفضلة</label>
+                    <select id="regFavoriteGame" required>
+                        <option value="">اختر اللعبة</option>
+                        <option value="Fortnite">Fortnite</option>
+                        <option value="Call of Duty">Call of Duty</option>
+                        <option value="Valorant">Valorant</option>
+                        <option value="FIFA">FIFA</option>
+                        <option value="Minecraft">Minecraft</option>
+                        <option value="PUBG">PUBG</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="player-actions" style="justify-content: center; margin-top: 20px;">
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-user-plus"></i> إنشاء حساب
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Microphone Permission Modal -->
+    <div class="modal hidden" id="micPermissionModal">
+        <div class="section-header">
+            <h2><i class="fas fa-microphone"></i> إذن استخدام المايكروفون</h2>
+        </div>
+        
+        <div style="text-align: center; padding: 20px;">
+            <i class="fas fa-microphone" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
+            <p class="arabic-text" style="margin-bottom: 20px; line-height: 1.6;">
+                يحتاج CrownGaming إلى إذن لاستخدام المايكروفون لتتمكن من التحدث في الغرف الصوتية.
+            </p>
+            <button class="btn btn-primary" id="requestMicPermissionBtn">
+                <i class="fas fa-check"></i> طلب الإذن
+            </button>
+            <button class="btn btn-secondary" id="skipMicBtn" style="margin-right: 10px;">
+                <i class="fas fa-times"></i> تخطي
+            </button>
+        </div>
+    </div>
+    
+    <!-- Overlay for modals -->
+    <div class="overlay hidden" id="overlay"></div>
+
+    <script>
+        // Local Database Simulation (بدون Firebase)
+        class LocalDatabase {
+            constructor() {
+                this.users = JSON.parse(localStorage.getItem('crownGamingUsers')) || {};
+                this.rooms = JSON.parse(localStorage.getItem('crownGamingRooms')) || {};
+                this.friends = JSON.parse(localStorage.getItem('crownGamingFriends')) || {};
+                this.friendRequests = JSON.parse(localStorage.getItem('crownGamingFriendRequests')) || {};
+                this.chatMessages = JSON.parse(localStorage.getItem('crownGamingChatMessages')) || [];
+                this.currentUser = JSON.parse(localStorage.getItem('crownGamingCurrentUser')) || null;
+                this.userStatus = JSON.parse(localStorage.getItem('crownGamingUserStatus')) || {};
+                
+                // Initialize with some sample data if empty
+                if (Object.keys(this.users).length === 0) {
+                    this.initializeSampleData();
+                }
+            }
+            
+            initializeSampleData() {
+                // Add some sample users
+                this.users = {
+                    'user1': {
+                        id: 'user1',
+                        name: 'أحمد',
+                        email: 'ahmed@example.com',
+                        password: '123456',
+                        country: 'السعودية',
+                        favoriteGame: 'Fortnite',
+                        level: 'متقدم',
+                        bio: 'لاعب محترف في Fortnite، أبحث عن فريق للتنافس',
+                        wins: 150,
+                        matches: 300,
+                        hours: 500,
+                        online: true,
+                        createdAt: Date.now() - 86400000
+                    },
+                    'user2': {
+                        id: 'user2',
+                        name: 'محمد',
+                        email: 'mohammed@example.com',
+                        password: '123456',
+                        country: 'مصر',
+                        favoriteGame: 'Call of Duty',
+                        level: 'محترف',
+                        bio: 'مصور محترف، أبحث عن لاعبين للمباريات الجماعية',
+                        wins: 200,
+                        matches: 350,
+                        hours: 600,
+                        online: true,
+                        createdAt: Date.now() - 172800000
+                    },
+                    'user3': {
+                        id: 'user3',
+                        name: 'سارة',
+                        email: 'sara@example.com',
+                        password: '123456',
+                        country: 'الإمارات',
+                        favoriteGame: 'Valorant',
+                        level: 'متوسط',
+                        bio: 'أحب ألعاب التصويب والتعاون مع الفريق',
+                        wins: 80,
+                        matches: 150,
+                        hours: 250,
+                        online: false,
+                        createdAt: Date.now() - 259200000
+                    }
+                };
+                
+                // Add some sample rooms
+                this.rooms = {
+                    'room1': {
+                        id: 'room1',
+                        name: 'غرفة المحترفين',
+                        description: 'لللاعبين المحترفين فقط',
+                        type: 'public',
+                        maxUsers: 10,
+                        game: 'Fortnite',
+                        owner: 'user1',
+                        ownerName: 'أحمد',
+                        members: {
+                            'user1': { name: 'أحمد', joinedAt: Date.now() - 3600000, isTalking: true },
+                            'user2': { name: 'محمد', joinedAt: Date.now() - 1800000, isTalking: false }
+                        },
+                        createdAt: Date.now() - 7200000,
+                        isActive: true
+                    },
+                    'room2': {
+                        id: 'room2',
+                        name: 'غرفة المبتدئين',
+                        description: 'للتعلم والتطوير',
+                        type: 'public',
+                        maxUsers: 20,
+                        game: 'Valorant',
+                        owner: 'user3',
+                        ownerName: 'سارة',
+                        members: {
+                            'user3': { name: 'سارة', joinedAt: Date.now() - 5400000, isTalking: false }
+                        },
+                        createdAt: Date.now() - 10800000,
+                        isActive: true
+                    }
+                };
+                
+                // Add some sample chat messages
+                this.chatMessages = [
+                    {
+                        id: 'msg1',
+                        senderId: 'user1',
+                        senderName: 'أحمد',
+                        text: 'مرحباً بالجميع! من يريد لعب Fortnite؟',
+                        timestamp: Date.now() - 3600000
+                    },
+                    {
+                        id: 'msg2',
+                        senderId: 'user2',
+                        senderName: 'محمد',
+                        text: 'أنا جاهز، متى نبدأ؟',
+                        timestamp: Date.now() - 3540000
+                    },
+                    {
+                        id: 'msg3',
+                        senderId: 'user3',
+                        senderName: 'سارة',
+                        text: 'هل هناك مبتدئين يريدون التعلم؟',
+                        timestamp: Date.now() - 3480000
+                    }
+                ];
+                
+                this.saveAll();
+            }
+            
+            saveAll() {
+                localStorage.setItem('crownGamingUsers', JSON.stringify(this.users));
+                localStorage.setItem('crownGamingRooms', JSON.stringify(this.rooms));
+                localStorage.setItem('crownGamingFriends', JSON.stringify(this.friends));
+                localStorage.setItem('crownGamingFriendRequests', JSON.stringify(this.friendRequests));
+                localStorage.setItem('crownGamingChatMessages', JSON.stringify(this.chatMessages));
+                localStorage.setItem('crownGamingCurrentUser', JSON.stringify(this.currentUser));
+                localStorage.setItem('crownGamingUserStatus', JSON.stringify(this.userStatus));
+            }
+            
+            // User methods
+            registerUser(userData) {
+                const userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                const newUser = {
+                    id: userId,
+                    ...userData,
+                    online: true,
+                    createdAt: Date.now(),
+                    level: 'مبتدئ',
+                    bio: '',
+                    wins: 0,
+                    matches: 0,
+                    hours: 0,
+                    gameCategory: ''
+                };
+                
+                this.users[userId] = newUser;
+                this.currentUser = newUser;
+                this.userStatus[userId] = { state: 'online', lastChanged: Date.now() };
+                this.saveAll();
+                return newUser;
+            }
+            
+            loginUser(email, password) {
+                const user = Object.values(this.users).find(u => 
+                    u.email === email && u.password === password
+                );
+                
+                if (user) {
+                    this.currentUser = user;
+                    user.online = true;
+                    this.userStatus[user.id] = { state: 'online', lastChanged: Date.now() };
+                    this.saveAll();
+                    return user;
+                }
+                return null;
+            }
+            
+            logoutUser() {
+                if (this.currentUser) {
+                    this.users[this.currentUser.id].online = false;
+                    this.userStatus[this.currentUser.id] = { state: 'offline', lastChanged: Date.now() };
+                    this.currentUser = null;
+                    this.saveAll();
+                }
+            }
+            
+            updateUser(userId, updates) {
+                if (this.users[userId]) {
+                    this.users[userId] = { ...this.users[userId], ...updates };
+                    if (this.currentUser && this.currentUser.id === userId) {
+                        this.currentUser = this.users[userId];
+                    }
+                    this.saveAll();
+                    return true;
+                }
+                return false;
+            }
+            
+            getAllUsers() {
+                return Object.values(this.users);
+            }
+            
+            getOnlineUsers() {
+                return Object.values(this.users).filter(u => u.online);
+            }
+            
+            // Room methods
+            createRoom(roomData) {
+                const roomId = 'room_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                const newRoom = {
+                    id: roomId,
+                    ...roomData,
+                    createdAt: Date.now(),
+                    isActive: true
+                };
+                
+                this.rooms[roomId] = newRoom;
+                this.saveAll();
+                return newRoom;
+            }
+            
+            getAllRooms() {
+                return Object.values(this.rooms);
+            }
+            
+            getRoom(roomId) {
+                return this.rooms[roomId];
+            }
+            
+            joinRoom(roomId, userId, userName) {
+                const room = this.rooms[roomId];
+                if (room && Object.keys(room.members).length < room.maxUsers) {
+                    room.members[userId] = {
+                        name: userName,
+                        joinedAt: Date.now(),
+                        isTalking: false
+                    };
+                    this.saveAll();
+                    return true;
+                }
+                return false;
+            }
+            
+            leaveRoom(roomId, userId) {
+                const room = this.rooms[roomId];
+                if (room && room.members[userId]) {
+                    delete room.members[userId];
+                    // If room is empty, delete it
+                    if (Object.keys(room.members).length === 0) {
+                        delete this.rooms[roomId];
+                    }
+                    this.saveAll();
+                    return true;
+                }
+                return false;
+            }
+            
+            // Chat methods
+            addChatMessage(messageData) {
+                const messageId = 'msg_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                const newMessage = {
+                    id: messageId,
+                    ...messageData,
+                    timestamp: Date.now()
+                };
+                
+                this.chatMessages.push(newMessage);
+                // Keep only last 100 messages
+                if (this.chatMessages.length > 100) {
+                    this.chatMessages = this.chatMessages.slice(-100);
+                }
+                this.saveAll();
+                return newMessage;
+            }
+            
+            getChatMessages(limit = 50) {
+                return this.chatMessages.slice(-limit);
+            }
+            
+            // Friends methods
+            sendFriendRequest(fromUserId, fromUserName, toUserId, toUserName) {
+                const requestId = 'req_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                const request = {
+                    id: requestId,
+                    from: fromUserId,
+                    fromName: fromUserName,
+                    to: toUserId,
+                    toName: toUserName,
+                    status: 'pending',
+                    timestamp: Date.now()
+                };
+                
+                if (!this.friendRequests) this.friendRequests = {};
+                this.friendRequests[requestId] = request;
+                this.saveAll();
+                return request;
+            }
+            
+            respondToFriendRequest(requestId, response) {
+                const request = this.friendRequests[requestId];
+                if (request) {
+                    request.status = response;
+                    request.respondedAt = Date.now();
+                    
+                    if (response === 'accepted') {
+                        // Add to friends list
+                        if (!this.friends[request.from]) this.friends[request.from] = {};
+                        if (!this.friends[request.to]) this.friends[request.to] = {};
+                        
+                        this.friends[request.from][request.to] = true;
+                        this.friends[request.to][request.from] = true;
+                    }
+                    
+                    this.saveAll();
+                    return true;
+                }
+                return false;
+            }
+            
+            getFriendRequestsForUser(userId) {
+                return Object.values(this.friendRequests || {}).filter(req => 
+                    req.to === userId && req.status === 'pending'
+                );
+            }
+            
+            getUserFriends(userId) {
+                if (!this.friends[userId]) return [];
+                return Object.keys(this.friends[userId]).map(friendId => this.users[friendId]);
+            }
+            
+            removeFriend(userId, friendId) {
+                if (this.friends[userId]) {
+                    delete this.friends[userId][friendId];
+                }
+                if (this.friends[friendId]) {
+                    delete this.friends[friendId][userId];
+                }
+                this.saveAll();
+            }
+        }
+
+        // DOM Elements
+        const sections = document.querySelectorAll('.section');
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const userDisplay = document.getElementById('userDisplay');
+        const userName = document.getElementById('userName');
+        const userAvatar = document.getElementById('userAvatar');
+        const userStatusDot = document.getElementById('userStatusDot');
+        const userStatusText = document.getElementById('userStatusText');
+        const playersGrid = document.getElementById('playersGrid');
+        const playersLoader = document.getElementById('playersLoader');
+        const searchPlayers = document.getElementById('searchPlayers');
+        const filterGame = document.getElementById('filterGame');
+        const refreshPlayers = document.getElementById('refreshPlayers');
+        const onlineCount = document.getElementById('onlineCount');
+        const roomsCount = document.getElementById('roomsCount');
+        const totalPlayers = document.getElementById('totalPlayers');
+        const createRoomBtn = document.getElementById('createRoomBtn');
+        const refreshRooms = document.getElementById('refreshRooms');
+        const roomsList = document.getElementById('roomsList');
+        const joinRoomBtn = document.getElementById('joinRoomBtn');
+        const leaveRoomBtn = document.getElementById('leaveRoomBtn');
+        const testMicBtn = document.getElementById('testMicBtn');
+        const currentRoomTitle = document.getElementById('currentRoomTitle');
+        const roomMembersCount = document.getElementById('roomMembersCount');
+        const voiceRoomMembers = document.getElementById('voiceRoomMembers');
+        const connectionStatus = document.getElementById('connectionStatus');
+        const micTestContainer = document.getElementById('micTestContainer');
+        const micVisualizer = document.getElementById('micVisualizer');
+        const micTestStatus = document.getElementById('micTestStatus');
+        const stopMicTestBtn = document.getElementById('stopMicTestBtn');
+        const micBtn = document.getElementById('micBtn');
+        const headphoneBtn = document.getElementById('headphoneBtn');
+        const micStatus = document.getElementById('micStatus');
+        const headphoneStatus = document.getElementById('headphoneStatus');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        const profileView = document.getElementById('profileView');
+        const profileEditForm = document.getElementById('profileEditForm');
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
+        const profileEditFormElement = document.getElementById('profileEditForm');
+        const refreshFriends = document.getElementById('refreshFriends');
+        const createRoomModal = document.getElementById('createRoomModal');
+        const createRoomForm = document.getElementById('createRoomForm');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const cancelRoomBtn = document.getElementById('cancelRoomBtn');
+        const joinRoomModal = document.getElementById('joinRoomModal');
+        const availableRoomsList = document.getElementById('availableRoomsList');
+        const closeJoinModalBtn = document.getElementById('closeJoinModalBtn');
+        const cancelJoinBtn = document.getElementById('cancelJoinBtn');
+        const authModal = document.getElementById('authModal');
+        const closeAuthModalBtn = document.getElementById('closeAuthModalBtn');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+        const micPermissionModal = document.getElementById('micPermissionModal');
+        const requestMicPermissionBtn = document.getElementById('requestMicPermissionBtn');
+        const skipMicBtn = document.getElementById('skipMicBtn');
+        const overlay = document.getElementById('overlay');
+        const notificationsContainer = document.getElementById('notificationsContainer');
+
+        // State variables
+        let db = new LocalDatabase();
+        let currentUser = db.currentUser;
+        let currentRoomId = null;
+        let isMicOn = false;
+        let isHeadphoneOn = true;
+        let isTestingMic = false;
+        let audioContext = null;
+        let audioStream = null;
+        let analyser = null;
+        let microphone = null;
+        let animationFrameId = null;
+        let chatUpdateInterval = null;
+
+        // Initialize the app
+        function initApp() {
+            console.log("🚀 بدء تشغيل CrownGaming...");
+            
+            // Check if user is logged in
+            if (currentUser) {
+                setupUser(currentUser);
+            } else {
+                showLoginState();
+            }
+            
+            // Navigation event listeners
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const sectionId = btn.getAttribute('data-section');
+                    showSection(sectionId);
+                    
+                    // Update active button
+                    navBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+            
+            // Auth event listeners
+            loginBtn.addEventListener('click', showAuthModal);
+            logoutBtn.addEventListener('click', handleLogout);
+            
+            // Players event listeners
+            refreshPlayers.addEventListener('click', loadPlayers);
+            searchPlayers.addEventListener('input', filterPlayers);
+            filterGame.addEventListener('change', filterPlayers);
+            
+            // Rooms event listeners
+            createRoomBtn.addEventListener('click', showCreateRoomModal);
+            refreshRooms.addEventListener('click', loadRooms);
+            joinRoomBtn.addEventListener('click', showJoinRoomModal);
+            leaveRoomBtn.addEventListener('click', leaveCurrentRoom);
+            
+            // Modal event listeners
+            closeModalBtn.addEventListener('click', closeAllModals);
+            cancelRoomBtn.addEventListener('click', closeAllModals);
+            closeJoinModalBtn.addEventListener('click', closeAllModals);
+            cancelJoinBtn.addEventListener('click', closeAllModals);
+            closeAuthModalBtn.addEventListener('click', closeAllModals);
+            requestMicPermissionBtn.addEventListener('click', requestMicrophonePermission);
+            skipMicBtn.addEventListener('click', () => {
+                micPermissionModal.classList.add('hidden');
+                overlay.classList.add('hidden');
+            });
+            overlay.addEventListener('click', closeAllModals);
+            
+            // Auth tabs event listeners
+            authTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const formId = tab.getAttribute('data-form');
+                    
+                    // Update active tab
+                    authTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show corresponding form
+                    document.querySelectorAll('.auth-form').forEach(form => {
+                        form.classList.add('hidden');
+                    });
+                    document.getElementById(formId).classList.remove('hidden');
+                });
+            });
+            
+            // Form event listeners
+            createRoomForm.addEventListener('submit', createNewRoom);
+            loginForm.addEventListener('submit', handleLogin);
+            registerForm.addEventListener('submit', handleRegister);
+            
+            // Password toggle event listeners
+            togglePasswordButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const input = document.getElementById(targetId);
+                    const icon = this.querySelector('i');
+                    
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.className = 'fas fa-eye-slash';
+                    } else {
+                        input.type = 'password';
+                        icon.className = 'fas fa-eye';
+                    }
+                });
+            });
+            
+            // Voice chat event listeners
+            micBtn.addEventListener('click', toggleMicrophone);
+            headphoneBtn.addEventListener('click', toggleHeadphones);
+            testMicBtn.addEventListener('click', testMicrophone);
+            stopMicTestBtn.addEventListener('click', stopMicrophoneTest);
+            
+            // Chat event listeners
+            sendMessageBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') sendMessage();
+            });
+            
+            // Profile event listeners
+            editProfileBtn.addEventListener('click', showEditProfile);
+            cancelEditBtn.addEventListener('click', cancelEditProfile);
+            profileEditFormElement.addEventListener('submit', updateProfile);
+            
+            // Friends event listeners
+            refreshFriends.addEventListener('click', loadFriends);
+            
+            // Initial load
+            loadStats();
+            setupChatListener();
+            
+            // Check microphone permission on load
+            setTimeout(checkMicrophonePermission, 1000);
+            
+            console.log("✅ التطبيق جاهز للاستخدام!");
+        }
+
+        // Show auth modal
+        function showAuthModal() {
+            authModal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+            
+            // Reset forms
+            loginForm.reset();
+            registerForm.reset();
+            
+            // Show login form by default
+            authTabs.forEach(tab => tab.classList.remove('active'));
+            authTabs[0].classList.add('active');
+            document.querySelectorAll('.auth-form').forEach(form => form.classList.add('hidden'));
+            loginForm.classList.remove('hidden');
+        }
+
+        // Handle login
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            
+            if (!email || !password) {
+                showNotification('الرجاء ملء جميع الحقول', 'error');
+                return;
+            }
+            
+            const user = db.loginUser(email, password);
+            if (user) {
+                showNotification('تم تسجيل الدخول بنجاح!', 'success');
+                closeAllModals();
+                currentUser = user;
+                setupUser(user);
+            } else {
+                showNotification('البريد الإلكتروني أو كلمة المرور غير صحيحة', 'error');
+            }
+        }
+
+        // Handle register
+        function handleRegister(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('regName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const password = document.getElementById('regPassword').value.trim();
+            const confirmPassword = document.getElementById('regConfirmPassword').value.trim();
+            const country = document.getElementById('regCountry').value;
+            const favoriteGame = document.getElementById('regFavoriteGame').value;
+            
+            // Validation
+            if (!name || !email || !password || !confirmPassword || !country || !favoriteGame) {
+                showNotification('الرجاء ملء جميع الحقول', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showNotification('كلمة المرور يجب أن تكون 6 أحرف على الأقل', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showNotification('كلمات المرور غير متطابقة', 'error');
+                return;
+            }
+            
+            // Check if email already exists
+            const existingUser = Object.values(db.users).find(u => u.email === email);
+            if (existingUser) {
+                showNotification('هذا البريد الإلكتروني مسجل بالفعل', 'error');
+                return;
+            }
+            
+            // Create new user
+            const userData = {
+                name,
+                email,
+                password,
+                country,
+                favoriteGame
+            };
+            
+            const newUser = db.registerUser(userData);
+            showNotification('تم إنشاء حسابك بنجاح!', 'success');
+            closeAllModals();
+            currentUser = newUser;
+            setupUser(newUser);
+        }
+
+        // Handle logout
+        function handleLogout() {
+            if (currentRoomId) {
+                leaveCurrentRoom();
+            }
+            
+            // Stop microphone if active
+            if (isMicOn) {
+                toggleMicrophone();
+            }
+            
+            // Stop microphone test if active
+            if (isTestingMic) {
+                stopMicrophoneTest();
+            }
+            
+            db.logoutUser();
+            currentUser = null;
+            showLoginState();
+            showNotification('تم تسجيل الخروج بنجاح', 'success');
+        }
+
+        // Set up user after login
+        function setupUser(user) {
+            console.log("🔧 إعداد المستخدم:", user.name);
+            
+            // Update UI
+            userDisplay.classList.remove('hidden');
+            loginBtn.classList.add('hidden');
+            logoutBtn.classList.remove('hidden');
+            
+            // Show all navigation buttons
+            navBtns.forEach(btn => btn.style.display = 'flex');
+            
+            // Update UI with user data
+            userName.textContent = user.name;
+            userAvatar.textContent = user.name ? user.name.charAt(0) : '?';
+            userAvatar.style.background = 'linear-gradient(135deg, var(--purple), var(--blue))';
+            
+            userStatusDot.style.backgroundColor = '#00FF7F';
+            userStatusText.textContent = 'متصل';
+            
+            // Load all sections
+            showSection('home');
+            
+            // Load data
+            loadPlayers();
+            loadRooms();
+            loadProfile();
+            loadFriends();
+            
+            showNotification(`مرحباً بعودتك ${user.name}!`, 'success');
+            
+            // Check microphone permission after login
+            setTimeout(checkMicrophonePermission, 500);
+        }
+
+        // Show login state (user not logged in)
+        function showLoginState() {
+            userDisplay.classList.add('hidden');
+            loginBtn.classList.remove('hidden');
+            logoutBtn.classList.add('hidden');
+            
+            // Show only home and login
+            navBtns.forEach(btn => {
+                const sectionId = btn.getAttribute('data-section');
+                if (sectionId !== 'home') {
+                    btn.style.display = 'none';
+                }
+            });
+            
+            showSection('home');
+            navBtns[0].classList.add('active');
+            
+            // Clear data
+            playersGrid.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--gray)" class="arabic-text">سجل الدخول لرؤية اللاعبين الآخرين</p>';
+            roomsList.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--gray)" class="arabic-text">سجل الدخول لرؤية الغرف المتاحة</p>';
+            chatMessages.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--gray)" class="arabic-text">سجل الدخول للمشاركة في الشات</p>';
+        }
+
+        // Check microphone permission
+        async function checkMicrophonePermission() {
+            try {
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    const permissionStatus = await navigator.permissions.query({ name: 'microphone' });
+                    
+                    if (permissionStatus.state === 'granted') {
+                        console.log("✅ إذن المايكروفون موجود مسبقاً");
+                        setupAudioContext();
+                    } else if (permissionStatus.state === 'prompt') {
+                        // Show permission modal
+                        micPermissionModal.classList.remove('hidden');
+                        overlay.classList.remove('hidden');
+                    }
+                }
+            } catch (error) {
+                console.log("⚠️ لا يمكن التحقق من إذن المايكروفون:", error);
+            }
+        }
+
+        // Request microphone permission
+        async function requestMicrophonePermission() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                stream.getTracks().forEach(track => track.stop());
+                
+                console.log("✅ تم منح إذن المايكروفون");
+                micPermissionModal.classList.add('hidden');
+                overlay.classList.add('hidden');
+                
+                setupAudioContext();
+                showNotification('تم تفعيل المايكروفون بنجاح!', 'success');
+            } catch (error) {
+                console.error("❌ خطأ في طلب إذن المايكروفون:", error);
+                showNotification('تم رفض إذن المايكروفون. يمكنك تفعيله لاحقاً من إعدادات المتصفح.', 'warning');
+                micPermissionModal.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        // Setup audio context
+        function setupAudioContext() {
+            try {
+                if (!audioContext) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    console.log("✅ تم إنشاء سياق الصوت");
+                }
+            } catch (error) {
+                console.error("❌ خطأ في إنشاء سياق الصوت:", error);
+            }
+        }
+
+        // Test microphone
+        async function testMicrophone() {
+            try {
+                if (isTestingMic) {
+                    stopMicrophoneTest();
+                    return;
+                }
+                
+                if (!audioContext) {
+                    setupAudioContext();
+                }
+                
+                // Request microphone access
+                audioStream = await navigator.mediaDevices.getUserMedia({ 
+                    audio: {
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true
+                    }
+                });
+                
+                // Create analyser for visualization
+                analyser = audioContext.createAnalyser();
+                microphone = audioContext.createMediaStreamSource(audioStream);
+                microphone.connect(analyser);
+                
+                analyser.fftSize = 256;
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+                
+                // Clear visualizer
+                micVisualizer.innerHTML = '';
+                
+                // Create bars for visualizer
+                const barWidth = (micVisualizer.offsetWidth - 16) / bufferLength;
+                for (let i = 0; i < bufferLength; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = 'mic-bar';
+                    bar.style.left = `${i * (barWidth + 2)}px`;
+                    bar.style.width = `${barWidth}px`;
+                    bar.style.height = '0px';
+                    micVisualizer.appendChild(bar);
+                }
+                
+                // Show test container
+                micTestContainer.classList.remove('hidden');
+                micTestStatus.textContent = 'يتحدث الآن... تحدث لرؤية نشاط المايكروفون';
+                isTestingMic = true;
+                
+                // Update visualization
+                function updateVisualization() {
+                    if (!isTestingMic) return;
+                    
+                    analyser.getByteFrequencyData(dataArray);
+                    const bars = micVisualizer.querySelectorAll('.mic-bar');
+                    
+                    for (let i = 0; i < bufferLength; i++) {
+                        const value = dataArray[i];
+                        const percent = value / 255;
+                        const height = Math.max(5, percent * 100);
+                        
+                        if (bars[i]) {
+                            bars[i].style.height = `${height}%`;
+                            bars[i].style.background = `linear-gradient(to top, var(--gold), var(--success))`;
+                        }
+                    }
+                    
+                    animationFrameId = requestAnimationFrame(updateVisualization);
+                }
+                
+                updateVisualization();
+                showNotification('جاري اختبار المايكروفون... تحدث لرؤية النشاط', 'info');
+                
+            } catch (error) {
+                console.error("❌ خطأ في اختبار المايكروفون:", error);
+                showNotification('فشل في الوصول إلى المايكروفون. تحقق من الإذونات.', 'error');
+            }
+        }
+
+        // Stop microphone test
+        function stopMicrophoneTest() {
+            if (isTestingMic) {
+                isTestingMic = false;
+                
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                
+                if (audioStream) {
+                    audioStream.getTracks().forEach(track => track.stop());
+                    audioStream = null;
+                }
+                
+                if (microphone && analyser) {
+                    microphone.disconnect();
+                    microphone = null;
+                    analyser = null;
+                }
+                
+                micTestContainer.classList.add('hidden');
+                showNotification('تم إيقاف اختبار المايكروفون', 'info');
+            }
+        }
+
+        // Toggle microphone
+        async function toggleMicrophone() {
+            try {
+                if (!isMicOn) {
+                    // Turn microphone on
+                    if (!audioContext) {
+                        setupAudioContext();
+                    }
+                    
+                    audioStream = await navigator.mediaDevices.getUserMedia({ 
+                        audio: {
+                            echoCancellation: true,
+                            noiseSuppression: true,
+                            autoGainControl: true
+                        }
+                    });
+                    
+                    isMicOn = true;
+                    micBtn.classList.add('active');
+                    micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+                    micStatus.textContent = 'مايك: مفعل';
+                    micStatus.style.color = 'var(--success)';
+                    
+                    showNotification('تم تفعيل المايكروفون', 'success');
+                    
+                } else {
+                    // Turn microphone off
+                    if (audioStream) {
+                        audioStream.getTracks().forEach(track => track.stop());
+                        audioStream = null;
+                    }
+                    
+                    isMicOn = false;
+                    micBtn.classList.remove('active');
+                    micBtn.innerHTML = '<i class="fas fa-microphone-slash"></i>';
+                    micStatus.textContent = 'مايك: معطل';
+                    micStatus.style.color = 'var(--gray)';
+                    
+                    showNotification('تم إيقاف المايكروفون', 'info');
+                }
+            } catch (error) {
+                console.error("❌ خطأ في التحكم بالمايكروفون:", error);
+                showNotification('فشل في التحكم بالمايكروفون. تحقق من الإذونات.', 'error');
+            }
+        }
+
+        // Toggle headphones
+        function toggleHeadphones() {
+            isHeadphoneOn = !isHeadphoneOn;
+            headphoneBtn.classList.toggle('active', !isHeadphoneOn);
+            headphoneBtn.innerHTML = isHeadphoneOn ? '<i class="fas fa-headphones"></i>' : '<i class="fas fa-headphones-slash"></i>';
+            headphoneStatus.textContent = isHeadphoneOn ? 'سماعات: مفعلة' : 'سماعات: معطلة';
+            headphoneStatus.style.color = isHeadphoneOn ? 'var(--success)' : 'var(--gray)';
+            
+            showNotification(isHeadphoneOn ? 'تم تفعيل السماعات' : 'تم إيقاف السماعات', 'info');
+        }
+
+        // Show a specific section
+        function showSection(sectionId) {
+            sections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+        // Load statistics
+        function loadStats() {
+            const users = db.getAllUsers();
+            const onlineUsers = db.getOnlineUsers();
+            const rooms = db.getAllRooms();
+            
+            onlineCount.textContent = onlineUsers.length;
+            roomsCount.textContent = rooms.length;
+            totalPlayers.textContent = users.length;
+            
+            // Update every 10 seconds
+            setInterval(() => {
+                const users = db.getAllUsers();
+                const onlineUsers = db.getOnlineUsers();
+                const rooms = db.getAllRooms();
+                
+                onlineCount.textContent = onlineUsers.length;
+                roomsCount.textContent = rooms.length;
+                totalPlayers.textContent = users.length;
+            }, 10000);
+        }
+
+        // Load all players from database
+        function loadPlayers() {
+            console.log("📊 جاري تحميل اللاعبين...");
+            playersLoader.classList.remove('hidden');
+            
+            setTimeout(() => {
+                const allUsers = db.getAllUsers();
+                playersGrid.innerHTML = '';
+                
+                allUsers.forEach(player => {
+                    // Don't show current user in the list
+                    if (!currentUser || player.id !== currentUser.id) {
+                        renderPlayerCard(player);
+                    }
+                });
+                
+                playersLoader.classList.add('hidden');
+                
+                if (allUsers.length === 0 || (currentUser && allUsers.length === 1)) {
+                    playersGrid.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--gray); grid-column: 1 / -1;" class="arabic-text">لا يوجد لاعبين آخرين في الوقت الحالي</p>';
+                }
+            }, 500);
+        }
+
+        // Render a player card
+        function renderPlayerCard(player) {
+            const playerCard = document.createElement('div');
+            playerCard.className = 'player-card';
+            playerCard.dataset.id = player.id;
+            
+            // Get first letter for avatar
+            const firstLetter = player.name ? player.name.charAt(0) : '?';
+            
+            playerCard.innerHTML = `
+                <div class="player-header">
+                    <div class="player-avatar">${firstLetter}</div>
+                    <div class="player-info">
+                        <h3>${player.name || 'لاعب'}</h3>
+                        <div class="player-country">
+                            <i class="fas fa-globe"></i>
+                            <span>${player.country || 'غير محدد'}</span>
+                            ${player.online ? '<i class="fas fa-circle" style="color: #00FF7F; font-size: 0.7rem; margin-right: 5px;"></i>' : ''}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="player-tags">
+                    <span class="tag">${player.favoriteGame || 'لعبة'}</span>
+                    <span class="tag">${player.level || 'مستوى'}</span>
+                    ${player.gameCategory ? `<span class="tag">${player.gameCategory}</span>` : ''}
+                </div>
+                
+                <p style="color: #ccc; font-size: 0.9rem; margin: 10px 0;" class="arabic-text">
+                    ${player.bio ? (player.bio.length > 100 ? player.bio.substring(0, 100) + '...' : player.bio) : 'لا توجد نبذة شخصية'}
+                </p>
+                
+                <div class="player-stats">
+                    <div class="stat">
+                        <div class="stat-value">${player.wins || 0}</div>
+                        <div class="stat-label">الفوز</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">${player.matches || 0}</div>
+                        <div class="stat-label">المباريات</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">${player.hours || 0}</div>
+                        <div class="stat-label">ساعة لعب</div>
+                    </div>
+                </div>
+                
+                <div class="player-actions">
+                    <button class="btn btn-primary btn-small add-friend-btn" data-id="${player.id}" data-name="${player.name}">
+                        <i class="fas fa-user-plus"></i> إضافة صديق
+                    </button>
+                    <button class="btn btn-secondary btn-small invite-room-btn" data-id="${player.id}" data-name="${player.name}">
+                        <i class="fas fa-door-open"></i> دعوة لغرفة
+                    </button>
+                </div>
+            `;
+            
+            playersGrid.appendChild(playerCard);
+            
+            // Add event listeners
+            const addFriendBtn = playerCard.querySelector('.add-friend-btn');
+            const inviteRoomBtn = playerCard.querySelector('.invite-room-btn');
+            
+            addFriendBtn.addEventListener('click', (e) => {
+                if (!currentUser) {
+                    showNotification('يجب تسجيل الدخول أولاً', 'error');
+                    return;
+                }
+                
+                const playerId = e.target.closest('button').dataset.id;
+                const playerName = e.target.closest('button').dataset.name;
+                sendFriendRequest(playerId, playerName);
+            });
+            
+            inviteRoomBtn.addEventListener('click', (e) => {
+                if (!currentUser) {
+                    showNotification('يجب تسجيل الدخول أولاً', 'error');
+                    return;
+                }
+                
+                const playerId = e.target.closest('button').dataset.id;
+                const playerName = e.target.closest('button').dataset.name;
+                inviteToRoom(playerId, playerName);
+            });
+        }
+
+        // Filter players based on search input
+        function filterPlayers() {
+            const searchTerm = searchPlayers.value.toLowerCase();
+            const selectedGame = filterGame.value;
+            
+            document.querySelectorAll('.player-card').forEach(card => {
+                const playerName = card.querySelector('h3').textContent.toLowerCase();
+                const playerTags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                
+                let matches = playerName.includes(searchTerm);
+                
+                // Apply game filter
+                if (selectedGame && !playerTags.some(tag => tag.includes(selectedGame.toLowerCase()))) {
+                    matches = false;
+                }
+                
+                card.style.display = matches ? 'block' : 'none';
+            });
+        }
+
+        // Send friend request
+        function sendFriendRequest(toUserId, toUserName) {
+            if (!currentUser) {
+                showNotification('يجب تسجيل الدخول أولاً', 'error');
+                return;
+            }
+            
+            if (toUserId === currentUser.id) {
+                showNotification('لا يمكنك إرسال طلب صداقة لنفسك', 'error');
+                return;
+            }
+            
+            // Check if already friends
+            const friends = db.getUserFriends(currentUser.id);
+            if (friends.some(friend => friend.id === toUserId)) {
+                showNotification('أنت صديق مع هذا اللاعب بالفعل', 'info');
+                return;
+            }
+            
+            // Send friend request
+            db.sendFriendRequest(currentUser.id, currentUser.name, toUserId, toUserName);
+            showNotification(`تم إرسال طلب صداقة إلى ${toUserName}`, 'success');
+        }
+
+        // Invite player to room
+        function inviteToRoom(playerId, playerName) {
+            if (!currentRoomId) {
+                showNotification('يجب أن تنضم إلى غرفة أولاً لدعوة الآخرين', 'warning');
+                return;
+            }
+            
+            showNotification(`تم إرسال دعوة إلى ${playerName} للانضمام إلى الغرفة`, 'success');
+        }
+
+        // Load rooms from database
+        function loadRooms() {
+            console.log("🚪 جاري تحميل الغرف...");
+            
+            const allRooms = db.getAllRooms();
+            roomsList.innerHTML = '';
+            
+            allRooms.forEach(room => {
+                renderRoomCard(room);
+            });
+            
+            if (allRooms.length === 0) {
+                roomsList.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--gray); grid-column: 1 / -1;" class="arabic-text">لا توجد غرف في الوقت الحالي، أنشئ غرفة جديدة!</p>';
+            }
+        }
+
+        // Render a room card
+        function renderRoomCard(room) {
+            const roomCard = document.createElement('div');
+            roomCard.className = `room-card ${room.type}`;
+            roomCard.dataset.id = room.id;
+            
+            // Calculate current members count
+            const memberCount = room.members ? Object.keys(room.members).length : 0;
+            const isFull = memberCount >= room.maxUsers;
+            const isInRoom = currentRoomId === room.id;
+            
+            roomCard.innerHTML = `
+                <div class="room-header">
+                    <div>
+                        <div class="room-title">${room.name}</div>
+                        <span class="room-type">${room.type === 'public' ? 'عامة' : 'خاصة'}</span>
+                    </div>
+                    <div style="color: ${isFull ? 'var(--danger)' : 'var(--success)'}; font-weight: bold;">
+                        ${memberCount}/${room.maxUsers}
+                    </div>
+                </div>
+                
+                <div class="room-description arabic-text">
+                    ${room.description || 'لا يوجد وصف للغرفة'}
+                </div>
+                
+                <div style="margin: 15px 0; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-gamepad" style="color: var(--gold);"></i>
+                    <span>${room.game || 'جميع الألعاب'}</span>
+                </div>
+                
+                <div class="room-members">
+                    <div class="member-avatars">
+                        <div class="member-avatar">${room.ownerName ? room.ownerName.charAt(0) : '?'}</div>
+                    </div>
+                    <span style="margin-right: 15px; color: var(--gray); font-size: 0.9rem;">أنشأها: ${room.ownerName}</span>
+                </div>
+                
+                <div class="room-stats">
+                    <span style="color: var(--gray); font-size: 0.9rem;">
+                        <i class="far fa-clock"></i> ${formatTime(room.createdAt)}
+                    </span>
+                    <button class="btn ${isInRoom ? 'btn-success' : isFull ? 'btn-secondary' : 'btn-primary'} btn-small join-room-btn" 
+                            data-id="${room.id}" 
+                            ${isFull && !isInRoom ? 'disabled style="opacity: 0.5;"' : ''}>
+                        <i class="fas fa-sign-in-alt"></i> ${isInRoom ? 'أنت هنا' : isFull ? 'ممتلئة' : 'انضم'}
+                    </button>
+                </div>
+            `;
+            
+            roomsList.appendChild(roomCard);
+            
+            // Add event listener if not full and not already in room
+            if (!isFull && !isInRoom) {
+                const joinBtn = roomCard.querySelector('.join-room-btn');
+                joinBtn.addEventListener('click', () => joinRoom(room.id));
+            }
+        }
+
+        // Show create room modal
+        function showCreateRoomModal() {
+            if (!currentUser) {
+                showNotification('يجب تسجيل الدخول أولاً', 'error');
+                showAuthModal();
+                return;
+            }
+            
+            createRoomModal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+        }
+
+        // Create a new room
+        function createNewRoom(e) {
+            e.preventDefault();
+            
+            if (!currentUser) {
+                showNotification('يجب تسجيل الدخول أولاً', 'error');
+                return;
+            }
+            
+            const roomName = document.getElementById('roomName').value.trim();
+            const roomDescription = document.getElementById('roomDescription').value.trim();
+            const roomType = document.getElementById('roomType').value;
+            const roomMaxUsers = parseInt(document.getElementById('roomMaxUsers').value);
+            const roomGame = document.getElementById('roomGame').value;
+            
+            if (!roomName) {
+                showNotification('الرجاء إدخال اسم الغرفة', 'error');
+                return;
+            }
+            
+            console.log("🚀 جاري إنشاء غرفة:", roomName);
+            
+            const roomData = {
+                name: roomName,
+                description: roomDescription,
+                type: roomType,
+                maxUsers: roomMaxUsers,
+                game: roomGame,
+                owner: currentUser.id,
+                ownerName: currentUser.name,
+                members: {
+                    [currentUser.id]: {
+                        name: currentUser.name,
+                        joinedAt: Date.now(),
+                        isTalking: false
+                    }
+                }
+            };
+            
+            const newRoom = db.createRoom(roomData);
+            showNotification(`تم إنشاء غرفة "${roomName}" بنجاح`, 'success');
+            closeAllModals();
+            createRoomForm.reset();
+            
+            // Join the room
+            currentRoomId = newRoom.id;
+            updateRoomUI();
+            
+            // Navigate to voice chat section
+            showSection('voiceChat');
+            document.querySelector('[data-section="voiceChat"]').classList.add('active');
+        }
+
+        // Show join room modal
+        function showJoinRoomModal() {
+            if (!currentUser) {
+                showNotification('يجب تسجيل الدخول أولاً', 'error');
+                showAuthModal();
+                return;
+            }
+            
+            const allRooms = db.getAllRooms();
+            if (allRooms.length === 0) {
+                showNotification('لا توجد غرف متاحة حالياً، أنشئ غرفة جديدة!', 'info');
+                createRoomBtn.click();
+                return;
+            }
+            
+            availableRoomsList.innerHTML = '';
+            
+            allRooms.forEach(room => {
+                const memberCount = room.members ? Object.keys(room.members).length : 0;
+                const isFull = memberCount >= room.maxUsers;
+                const isInRoom = currentRoomId === room.id;
+                
+                if (!isFull && !isInRoom) {
+                    const roomElement = document.createElement('div');
+                    roomElement.className = 'member-item';
+                    roomElement.style.cursor = 'pointer';
+                    roomElement.innerHTML = `
+                        <div>
+                            <h4 style="color: var(--gold); margin-bottom: 5px;">${room.name}</h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 5px;" class="arabic-text">${room.description || 'لا يوجد وصف'}</p>
+                            <div style="display: flex; gap: 10px; align-items: center;">
+                                <span style="color: ${isFull ? 'var(--danger)' : 'var(--success)'}; font-size: 0.9rem;">
+                                    ${memberCount}/${room.maxUsers} أعضاء
+                                </span>
+                                <span style="color: var(--gray); font-size: 0.9rem;">${room.game || 'جميع الألعاب'}</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-small join-room-from-list" data-id="${room.id}">
+                            <i class="fas fa-sign-in-alt"></i> انضم
+                        </button>
+                    `;
+                    
+                    availableRoomsList.appendChild(roomElement);
+                    
+                    roomElement.querySelector('.join-room-from-list').addEventListener('click', () => {
+                        joinRoom(room.id);
+                    });
+                }
+            });
+            
+            if (availableRoomsList.children.length === 0) {
+                availableRoomsList.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--gray)" class="arabic-text">جميع الغرف ممتلئة أو أنت موجود فيها بالفعل</p>';
+            }
+            
+            joinRoomModal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+        }
+
+        // Join a room
+        function joinRoom(roomId) {
+            console.log("🎧 الانضمام إلى الغرفة:", roomId);
+            
+            if (!currentUser) {
+                showNotification('يجب تسجيل الدخول أولاً', 'error');
+                return;
+            }
+            
+            const room = db.getRoom(roomId);
+            if (!room) {
+                showNotification('الغرفة غير موجودة', 'error');
+                return;
+            }
+            
+            // Check if room is full
+            const memberCount = room.members ? Object.keys(room.members).length : 0;
+            if (memberCount >= room.maxUsers) {
+                showNotification('الغرفة ممتلئة', 'error');
+                return;
+            }
+            
+            // Leave current room if any
+            if (currentRoomId) {
+                leaveCurrentRoom();
+            }
+            
+            // Add user to room members
+            const success = db.joinRoom(roomId, currentUser.id, currentUser.name);
+            if (success) {
+                currentRoomId = roomId;
+                updateRoomUI();
+                
+                closeAllModals();
+                showNotification(`انضممت إلى غرفة "${room.name}"`, 'success');
+                
+                // Navigate to voice chat section
+                showSection('voiceChat');
+                document.querySelector('[data-section="voiceChat"]').classList.add('active');
+            } else {
+                showNotification('حدث خطأ في الانضمام إلى الغرفة', 'error');
+            }
+        }
+
+        // Leave current room
+        function leaveCurrentRoom() {
+            if (!currentRoomId || !currentUser) return;
+            
+            console.log("👋 مغادرة الغرفة:", currentRoomId);
+            
+            const success = db.leaveRoom(currentRoomId, currentUser.id);
+            if (success) {
+                showNotification(`غادرت الغرفة`, 'info');
+                
+                // Reset room state
+                currentRoomId = null;
+                updateRoomUI();
+            }
+        }
+
+        // Update room UI
+        function updateRoomUI() {
+            if (currentRoomId) {
+                const room = db.getRoom(currentRoomId);
+                if (room) {
+                    currentRoomTitle.textContent = room.name;
+                    joinRoomBtn.classList.add('hidden');
+                    leaveRoomBtn.classList.remove('hidden');
+                    loadRoomMembers();
+                }
+            } else {
+                currentRoomTitle.textContent = 'لم تنضم إلى أي غرفة';
+                joinRoomBtn.classList.remove('hidden');
+                leaveRoomBtn.classList.add('hidden');
+                voiceRoomMembers.innerHTML = `
+                    <p style="text-align: center; color: var(--gray); padding: 40px 20px;" class="arabic-text">
+                        انضم إلى غرفة صوتية لرؤية الأعضاء والبدء بالمحادثة
+                    </p>
+                `;
+                roomMembersCount.textContent = '0 أعضاء';
+            }
+        }
+
+        // Load room members
+        function loadRoomMembers() {
+            if (!currentRoomId) return;
+            
+            const room = db.getRoom(currentRoomId);
+            if (!room) return;
+            
+            voiceRoomMembers.innerHTML = '';
+            let memberCount = 0;
+            
+            Object.entries(room.members).forEach(([memberId, member]) => {
+                memberCount++;
+                
+                const memberItem = document.createElement('div');
+                memberItem.className = 'member-item';
+                memberItem.dataset.id = memberId;
+                
+                const firstLetter = member.name ? member.name.charAt(0) : '?';
+                const isCurrentUser = memberId === currentUser.id;
+                
+                memberItem.innerHTML = `
+                    <div class="member-avatar-small" style="${member.isTalking ? 'border: 2px solid var(--success); box-shadow: 0 0 10px var(--success);' : ''}">
+                        ${firstLetter}
+                        ${member.isTalking ? '<div style="position: absolute; bottom: -5px; right: -5px; width: 15px; height: 15px; background: var(--success); border-radius: 50%;"></div>' : ''}
+                    </div>
+                    <div class="member-info">
+                        <h4>${member.name}</h4>
+                        <div class="member-status">
+                            <div class="status-dot"></div>
+                            <span>${member.isTalking ? 'يتحدث الآن' : 'متصل'}</span>
+                        </div>
+                    </div>
+                    ${isCurrentUser ? '<span style="color: var(--gold); font-size: 0.9rem;">(أنت)</span>' : ''}
+                `;
+                
+                voiceRoomMembers.appendChild(memberItem);
+            });
+            
+            roomMembersCount.textContent = `${memberCount} أعضاء`;
+        }
+
+        // Set up chat listener
+        function setupChatListener() {
+            // Clear any existing interval
+            if (chatUpdateInterval) {
+                clearInterval(chatUpdateInterval);
+            }
+            
+            // Update chat every 2 seconds
+            chatUpdateInterval = setInterval(updateChatMessages, 2000);
+            updateChatMessages();
+        }
+
+        // Update chat messages
+        function updateChatMessages() {
+            const messages = db.getChatMessages(50);
+            chatMessages.innerHTML = '';
+            
+            messages.forEach(message => {
+                renderMessage(message);
+            });
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Send a chat message
+        function sendMessage() {
+            const messageText = chatInput.value.trim();
+            if (!messageText) {
+                showNotification('لا يمكن إرسال رسالة فارغة', 'warning');
+                return;
+            }
+            
+            if (!currentUser) {
+                showNotification('يجب تسجيل الدخول أولاً', 'error');
+                showAuthModal();
+                return;
+            }
+            
+            const messageData = {
+                senderId: currentUser.id,
+                senderName: currentUser.name,
+                text: messageText
+            };
+            
+            db.addChatMessage(messageData);
+            chatInput.value = '';
+            chatInput.focus();
+        }
+
+        // Render a chat message
+        function renderMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message';
+            
+            const time = new Date(message.timestamp);
+            const timeString = time.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+            
+            const isCurrentUser = currentUser && message.senderId === currentUser.id;
+            
+            messageElement.innerHTML = `
+                <div class="message-header">
+                    <span class="message-sender" style="${isCurrentUser ? 'color: var(--gold);' : ''}">
+                        ${isCurrentUser ? 'أنت' : message.senderName}
+                    </span>
+                    <span class="message-time">${timeString}</span>
+                </div>
+                <div class="message-content arabic-text">
+                    ${message.text}
+                </div>
+            `;
+            
+            chatMessages.appendChild(messageElement);
+        }
+
+        // Load and display user profile
+        function loadProfile() {
+            if (!currentUser) return;
+            
+            displayProfile(currentUser);
+        }
+
+        // Display user profile
+        function displayProfile(userData) {
+            console.log("📋 عرض الملف الشخصي:", userData.name);
+            
+            // Update profile view
+            document.getElementById('profileAvatar').textContent = userData.name ? userData.name.charAt(0) : '?';
+            document.getElementById('profileName').textContent = userData.name || 'لاعب';
+            document.getElementById('profileCountry').textContent = userData.country || 'غير محدد';
+            document.getElementById('profileBio').textContent = userData.bio || 'لا توجد نبذة شخصية';
+            
+            document.getElementById('profileLevel').textContent = userData.level || '-';
+            document.getElementById('profileWins').textContent = userData.wins || 0;
+            document.getElementById('profileMatches').textContent = userData.matches || 0;
+            document.getElementById('profileHours').textContent = userData.hours || 0;
+            
+            // Update tags
+            const profileTags = document.getElementById('profileTags');
+            profileTags.innerHTML = '';
+            
+            if (userData.favoriteGame) {
+                const tag1 = document.createElement('span');
+                tag1.className = 'tag';
+                tag1.textContent = userData.favoriteGame;
+                profileTags.appendChild(tag1);
+            }
+            
+            if (userData.level) {
+                const tag2 = document.createElement('span');
+                tag2.className = 'tag';
+                tag2.textContent = userData.level;
+                profileTags.appendChild(tag2);
+            }
+            
+            if (userData.gameCategory) {
+                const tag3 = document.createElement('span');
+                tag3.className = 'tag';
+                tag3.textContent = userData.gameCategory;
+                profileTags.appendChild(tag3);
+            }
+            
+            // Fill edit form with current data
+            document.getElementById('editName').value = userData.name || '';
+            document.getElementById('editCountry').value = userData.country || '';
+            document.getElementById('editGameCategory').value = userData.gameCategory || '';
+            document.getElementById('editFavoriteGame').value = userData.favoriteGame || '';
+            document.getElementById('editLevel').value = userData.level || 'مبتدئ';
+            document.getElementById('editBio').value = userData.bio || '';
+            document.getElementById('editWins').value = userData.wins || 0;
+            document.getElementById('editMatches').value = userData.matches || 0;
+            document.getElementById('editHours').value = userData.hours || 0;
+        }
+
+        // Show edit profile form
+        function showEditProfile() {
+            if (!currentUser) {
+                showNotification('يجب تسجيل الدخول أولاً', 'error');
+                return;
+            }
+            
+            profileView.classList.add('hidden');
+            profileEditForm.classList.remove('hidden');
+        }
+
+        // Cancel editing profile
+        function cancelEditProfile() {
+            profileEditForm.classList.add('hidden');
+            profileView.classList.remove('hidden');
+        }
+
+        // Update user profile
+        function updateProfile(e) {
+            e.preventDefault();
+            
+            if (!currentUser) {
+                showNotification('يجب تسجيل الدخول أولاً', 'error');
+                return;
+            }
+            
+            const updatedData = {
+                name: document.getElementById('editName').value.trim(),
+                country: document.getElementById('editCountry').value,
+                gameCategory: document.getElementById('editGameCategory').value,
+                favoriteGame: document.getElementById('editFavoriteGame').value,
+                level: document.getElementById('editLevel').value,
+                bio: document.getElementById('editBio').value.trim(),
+                wins: parseInt(document.getElementById('editWins').value) || 0,
+                matches: parseInt(document.getElementById('editMatches').value) || 0,
+                hours: parseInt(document.getElementById('editHours').value) || 0
+            };
+            
+            // Validate required fields
+            if (!updatedData.name || !updatedData.country || !updatedData.favoriteGame || !updatedData.level) {
+                showNotification('الرجاء ملء جميع الحقول الإجبارية', 'error');
+                return;
+            }
+            
+            console.log("🔄 تحديث الملف الشخصي:", updatedData);
+            
+            const success = db.updateUser(currentUser.id, updatedData);
+            if (success) {
+                showNotification('تم تحديث ملفك الشخصي بنجاح', 'success');
+                cancelEditProfile();
+                currentUser = db.currentUser;
+                userName.textContent = updatedData.name;
+                userAvatar.textContent = updatedData.name ? updatedData.name.charAt(0) : '?';
+            } else {
+                showNotification('حدث خطأ في تحديث الملف', 'error');
+            }
+        }
+
+        // Load friends and friend requests
+        function loadFriends() {
+            if (!currentUser) return;
+            
+            // Load friends
+            const friends = db.getUserFriends(currentUser.id);
+            const friendsList = document.getElementById('friendsList');
+            friendsList.innerHTML = '';
+            
+            if (friends.length > 0) {
+                friends.forEach(friend => {
+                    const friendElement = document.createElement('div');
+                    friendElement.className = 'member-item';
+                    friendElement.style.marginBottom = '10px';
+                    
+                    const firstLetter = friend.name ? friend.name.charAt(0) : '?';
+                    
+                    friendElement.innerHTML = `
+                        <div class="member-avatar-small">${firstLetter}</div>
+                        <div class="member-info">
+                            <h4>${friend.name}</h4>
+                            <div class="member-status">
+                                <div class="status-dot" style="background-color: ${friend.online ? '#00FF7F' : '#FF4757'};"></div>
+                                <span>${friend.online ? 'متصل' : 'غير متصل'}</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger btn-small remove-friend-btn" data-id="${friend.id}" data-name="${friend.name}">
+                            <i class="fas fa-user-times"></i>
+                        </button>
+                    `;
+                    
+                    friendsList.appendChild(friendElement);
+                    
+                    // Add event listener for remove button
+                    const removeBtn = friendElement.querySelector('.remove-friend-btn');
+                    removeBtn.addEventListener('click', (e) => {
+                        const friendId = e.target.closest('button').dataset.id;
+                        const friendName = e.target.closest('button').dataset.name;
+                        removeFriend(friendId, friendName);
+                    });
+                });
+            } else {
+                friendsList.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 40px 20px;" class="arabic-text">لا يوجد أصدقاء حتى الآن. ابدأ بإرسال طلبات صداقة إلى اللاعبين الآخرين.</p>';
+            }
+            
+            // Load friend requests
+            const friendRequests = db.getFriendRequestsForUser(currentUser.id);
+            const friendRequestsDiv = document.getElementById('friendRequests');
+            friendRequestsDiv.innerHTML = '';
+            
+            if (friendRequests.length > 0) {
+                friendRequests.forEach(request => {
+                    const requestElement = document.createElement('div');
+                    requestElement.className = 'member-item';
+                    requestElement.style.marginBottom = '10px';
+                    
+                    const firstLetter = request.fromName ? request.fromName.charAt(0) : '?';
+                    
+                    requestElement.innerHTML = `
+                        <div class="member-avatar-small">${firstLetter}</div>
+                        <div class="member-info">
+                            <h4>${request.fromName}</h4>
+                            <div class="member-status">
+                                <span style="color: var(--warning); font-size: 0.8rem;">طلب صداقة</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 5px;">
+                            <button class="btn btn-success btn-small accept-friend-btn" data-id="${request.id}" data-fromname="${request.fromName}">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="btn btn-danger btn-small reject-friend-btn" data-id="${request.id}">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                    
+                    friendRequestsDiv.appendChild(requestElement);
+                    
+                    // Add event listeners
+                    const acceptBtn = requestElement.querySelector('.accept-friend-btn');
+                    const rejectBtn = requestElement.querySelector('.reject-friend-btn');
+                    
+                    acceptBtn.addEventListener('click', (e) => {
+                        const requestId = e.target.closest('button').dataset.id;
+                        const fromName = e.target.closest('button').dataset.fromname;
+                        respondToFriendRequest(requestId, 'accepted', fromName);
+                    });
+                    
+                    rejectBtn.addEventListener('click', (e) => {
+                        const requestId = e.target.closest('button').dataset.id;
+                        respondToFriendRequest(requestId, 'rejected');
+                    });
+                });
+            } else {
+                friendRequestsDiv.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 40px 20px;" class="arabic-text">لا توجد طلبات صداقة في الوقت الحالي.</p>';
+            }
+        }
+
+        // Respond to friend request
+        function respondToFriendRequest(requestId, response, fromName = '') {
+            const success = db.respondToFriendRequest(requestId, response);
+            if (success) {
+                if (response === 'accepted') {
+                    showNotification(`قبلت طلب صداقة من ${fromName}`, 'success');
+                } else {
+                    showNotification(`رفضت طلب صداقة`, 'info');
+                }
+                loadFriends();
+            } else {
+                showNotification('حدث خطأ في معالجة الطلب', 'error');
+            }
+        }
+
+        // Remove friend
+        function removeFriend(friendId, friendName) {
+            if (confirm(`هل أنت متأكد من إزالة ${friendName} من قائمة أصدقائك؟`)) {
+                db.removeFriend(currentUser.id, friendId);
+                showNotification(`تم إزالة ${friendName} من قائمة أصدقائك`, 'info');
+                loadFriends();
+            }
+        }
+
+        // Close all modals
+        function closeAllModals() {
+            createRoomModal.classList.add('hidden');
+            joinRoomModal.classList.add('hidden');
+            authModal.classList.add('hidden');
+            micPermissionModal.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }
+
+        // Format timestamp
+        function formatTime(timestamp) {
+            if (!timestamp) return 'الآن';
+            
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+            
+            if (diffMins < 1) return 'الآن';
+            if (diffMins < 60) return `منذ ${diffMins} دقيقة`;
+            if (diffHours < 24) return `منذ ${diffHours} ساعة`;
+            if (diffDays < 7) return `منذ ${diffDays} يوم`;
+            
+            return date.toLocaleDateString('ar-EG');
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            
+            let icon = 'fas fa-info-circle';
+            if (type === 'success') icon = 'fas fa-crown';
+            if (type === 'error') icon = 'fas fa-exclamation-circle';
+            if (type === 'warning') icon = 'fas fa-exclamation-triangle';
+            
+            notification.innerHTML = `
+                <div class="notification-icon">
+                    <i class="${icon}"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>${type === 'success' ? 'تم بنجاح' : type === 'error' ? 'خطأ' : 'تنبيه'}</h4>
+                    <p class="arabic-text">${message}</p>
+                </div>
+            `;
+            
+            notificationsContainer.appendChild(notification);
+            
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideInLeft 0.3s ease reverse';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 5000);
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
